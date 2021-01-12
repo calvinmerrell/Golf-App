@@ -7,29 +7,58 @@ module.exports = {
       
       // need user info from the registering user
       const {username, password, first_name, last_name, is_admin} = req.body;
-      const foundUser = await db.auth.get_user(username);
-      // if existing user found
-      if(foundUser[0]) {
-          return res.status(400).send('Username already exists')
-      }
 
-      // hash the pass
+      const [existingUser] = await db.auth.get_user([username])
+console.log("hit 1")
+      // if existing user found
+      if(existingUser) {
+          return res.status(409).send('User already exists')
+      }
+console.log("hit 2")
+      // hash the password
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password,salt);
 
-      const newUser = await db.auth.add_new_user(username, hash, first_name, last_name, is_admin)
-      delete newUser[0].hash;
-      delete newUser[0].first_name;
-      delete newUser[0].last_name;
-
+        //insert the newUser into the db
+      const [newUser] = await db.auth.register_user([username, hash, first_name, last_name, is_admin])
+      delete newUser.hash;
+      delete newUser.first_name;
+      delete newUser.last_name;
+console.log("hit 3")
       //create a session for the new user which logs them in
-      req.session.user = { ...newUser[0] }
+      req.session.user =  newUser
 
       // send a response with the session object so the front end can use the info as needed
-      res.status(200).send(req.session.user)
+      res.status(200).send(newUser)
 
     },
-    login: (req, res) => {
+    login: async (req, res) => {
+      const db = req.app.get('db')
+      const {username,password} = req.body
+
+      const [existingUser] = await db.auth.get_user([username])
+
+      if(!existingUser){
+        return res.status(404).send('User does not exist')
+      }
+
+      // Check the password against the ahsh, if there is a mismatch reject the request. 
+      const isAuthenticated = bcrypt.compareSync(password,existingUser.hash)
+
+      if(!isAuthenticated){
+        return res.status(403).send('Incorrect password')
+      }
+
+      // Delete the Hash from the user object
+      delete existingUser.hash
+
+      // Attach the user to the session
+      req.session.user = existingUser
+
+      // Send back confirmation of login
+      res.status(200).send(existingUser)
+    },
+    getUserSession: (req,res) => {
 
     },
     logout: (req, res) => {
