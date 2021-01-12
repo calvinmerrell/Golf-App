@@ -3,6 +3,7 @@ const express = require ('express');
 const massive = require('massive')
 const session = require('express-session');
 const authctrl = require('./controllers/authController');
+const authenticateUser = require('./middlewares/authenticateUser')
 const {SERVER_PORT, DB_STRING, SESSION_SECRET} = process.env
 
 // const historyCtrl = require('./controllers/historyController');
@@ -28,6 +29,9 @@ app.post('/auth/register', authctrl.register);
 app.post('/auth/login', authctrl.login);
 app.get('/auth/user', authctrl.getUserSession)
 app.delete('/auth/logout', authctrl.logout);
+
+
+
 
 // connect our server to our db
 massive({

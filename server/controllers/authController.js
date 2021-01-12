@@ -59,9 +59,14 @@ console.log("hit 3")
       res.status(200).send(existingUser)
     },
     getUserSession: (req,res) => {
-
+      if(req.session.user){
+        res.status(200).send(req.session.user)
+      } else {
+        res.status(404).send('No session found')
+      }
     },
     logout: (req, res) => {
-        
+      req.session.destroy()
+      res.sendStatus(200)  
     }
 }
