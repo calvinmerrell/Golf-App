@@ -45,7 +45,9 @@ massive({
 })
 
 // //History endpoints
-// app.get('/api/history',historyCtrl.getHistory)
+app.get('/api/members'),(req,res) => res.status(200).send(members)
+
+app.get('/api/members/:user_id',historyCtrl.getHistory)
 // app.put('./app/history:round_id',historyCtrl.changeScore)
 // app.delete('/api/history:round_id',historyCtrl.removeFromHistory)
 

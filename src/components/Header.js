@@ -12,12 +12,8 @@ const Header = (props) => {
                         <li>Home</li>
                     </Link>
 
-                    <Link to='/players'>
-                        <li>Players</li>
-                    </Link>
-
-                    <Link to='/playerhistory'>
-                        <li>Player History</li>
+                    <Link to='/Members'>
+                        <li>Members</li>
                     </Link>
 
                     <Link to='/weeklygames'>
@@ -28,6 +24,7 @@ const Header = (props) => {
                         <li>Post Score</li>
                     </Link>
                 </ul>
+                
             </nav>
         </header>
     )
