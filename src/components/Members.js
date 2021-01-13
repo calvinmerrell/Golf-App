@@ -17,8 +17,8 @@ const Members = (props) => {
         <div className="member-list">
             <h2 className="member-list-title">MEMBERS</h2>
             <div className="list-hold">
-                {members.map((player) => (
-                    <Player key={player.id} data={player}/>
+                {members.map((user) => (
+                    <Player key={user.id} data={user}/>
                 ))}
             </div>
         </div>

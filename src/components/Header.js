@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import './style.css'
 
 const Header = (props) => {
@@ -29,4 +30,4 @@ const Header = (props) => {
         </header>
     )
 }
-export default Header
+export default withRouter(Header)

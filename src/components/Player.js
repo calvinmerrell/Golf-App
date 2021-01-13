@@ -7,7 +7,7 @@ const Player = (props) => {
     return (
         <div className="player">
             <Link to ={`/members/${id}`}>
-            <p>{first_name} - {last_name}</p>
+            <p>{first_name}  {last_name}</p>
             </Link>
         </div>
     )
