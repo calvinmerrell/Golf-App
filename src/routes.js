@@ -5,6 +5,7 @@ import Members from './components/Members'
 import PlayerHistory from './components/PlayerHistory'
 import PostScore from './components/PostScore'
 import WeeklyGames from './components/WeeklyGames'
+import Register from './components/Register'
 import NotFound from './components/NotFound'
 
 export default(
@@ -14,6 +15,7 @@ export default(
       <Route exact path='/members/:id' component={PlayerHistory} />
       <Route exact path='/postscore' component={PostScore} />
       <Route exact path='/weeklygames' component={WeeklyGames} />
+      <Route exact path="/register"><Register /></Route>
       <Route component={NotFound}/>
     </Switch>
 )

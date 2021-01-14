@@ -9,12 +9,12 @@ module.exports = {
       const {username, password, first_name, last_name, is_admin} = req.body;
 
       const [existingUser] = await db.auth.get_user([username])
-console.log("hit 1")
+
       // if existing user found
       if(existingUser) {
           return res.status(409).send('User already exists')
       }
-console.log("hit 2")
+
       // hash the password
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password,salt);
@@ -24,7 +24,7 @@ console.log("hit 2")
       delete newUser.hash;
       delete newUser.first_name;
       delete newUser.last_name;
-console.log("hit 3")
+
       //create a session for the new user which logs them in
       req.session.user =  newUser
 

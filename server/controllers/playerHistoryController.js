@@ -10,7 +10,7 @@ module.exports = {
       })        
     },
     
-    getRoundByID: (req,res)=>{
+    getRoundByPlayerId: (req,res)=>{
       const db =req.app.get('db')
     },
     

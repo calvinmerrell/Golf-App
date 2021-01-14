@@ -49,7 +49,7 @@ app.get('/api/members', membersCtrl.getAllMembers)
 
 // PlayerHistory END POINTS:
 // app.get('/api/playerhistory', playerHistoryCtrl.getAllRounds);
-// app.get('/api/playerhistory/:round_id',playerHistoryCtrl.getRoundById);
+app.get('/api/playerhistory/:player_id',playerHistoryCtrl.getRoundByPlayerId);
 // app.post('/api/playerhistory',postCtrl.addRound);
 // app.put('/api/playerhistory/:round_id',playerHistoryCtrl.editRound);
 // app.delete('/api/playerhistory/:round_id',playerHistoryCtrl.deleteRound);

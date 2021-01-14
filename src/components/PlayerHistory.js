@@ -1,19 +1,34 @@
-// import axios from 'axios'
-// import React, {Component,useState, useEffect} from 'react'
+import axios from 'axios'
+import React, {useState, useEffect} from 'react'
 
 
-// import './style.css'
 
-// const Rounds = (props) => {
-//     const[rounds,setRounds] = useState([])
+import './style.css'
 
-//     useEffect(() => {
-//         axios.get('/api/rounds').then((res) => {
-//             setRounds(res.data)
-//         })
-//     }, [])
-// }
+const PlayerHistory = (props) => {
+    const[rounds,setRounds] = useState([])
 
+    useEffect(() => {
+        axios.get('/api/rounds').then((res) => {
+            setRounds(res.data)
+        })
+    }, [])
+
+    // render(){
+        return(
+            <div className="single-member">
+            <h2>
+                {/* {this.state.users.first_name}' '{this.state.users.last_name} */}
+            </h2>
+            <div className="list-hold">
+                {/* {Rounds.map((round) => (
+                    <Round key={round.id} data={round}/>
+                ))} */}
+            </div>
+        </div>
+    )
+    
+}
 // class PlayerHistory extends Component {
 //     constructor() {
 //         super()
@@ -46,21 +61,4 @@
 //             this.props.history.push('/404')
 //         })
 //     }
-
-
-//     render(){
-//     return(
-//         <div className="single-member">
-//             <h2>
-//                 {this.state.users.first_name}' '{this.state.users.last_name}
-//             </h2>
-//             <div className="list-hold">
-//                 {Rounds.map((round) => (
-//                     <Rounds key={round.id} data={round}/>
-//                 ))}
-//             </div>
-//         </div>
-//     )
-//     }
-// }
-// export default PlayerHistory
+export default PlayerHistory
