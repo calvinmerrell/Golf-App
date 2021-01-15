@@ -7,24 +7,24 @@
 --     is_admin boolean
 --     )
 
--- CREATE TABLE rounds (
---   id SERIAL PRIMARY KEY, 
---   user_id int, 
---   date date, 
---   course_id int, 
---   teebox VARCHAR(10), 
---   front9score int, 
---   back9score int, 
---   full18score int,
---   FOREIGN KEY (user_id) references users(id)
---   )
+CREATE TABLE rounds (
+  id SERIAL PRIMARY KEY, 
+  user_id int, 
+  date date, 
+  course_id int, 
+  teebox VARCHAR(10), 
+  front9score int, 
+  back9score int, 
+  full18score int,
+  FOREIGN KEY (user_id) references users(id)
+  )
   
-  -- CREATE TABLE courses (
-  -- course_id SERIAL PRIMARY KEY,
-  -- course_name VARCHAR(75),
-  -- front9par int,
-  -- back9par int,
-  -- course_par int,
+  CREATE TABLE courses (
+  course_id SERIAL PRIMARY KEY,
+  course_name VARCHAR(75),
+  front9par int,
+  back9par int,
+  course_par int,
   -- par1 int, 
   -- par2 int, 
   -- par3 int, 

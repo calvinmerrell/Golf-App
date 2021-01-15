@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import Player from './Player'
 import axios from 'axios'
+import Player from './Player'
 import './style.css'
 
 const Members = (props) => {

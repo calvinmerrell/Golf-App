@@ -1,15 +1,14 @@
-import axios from 'axios'
 import React, {useState, useEffect} from 'react'
-
-
-
+import axios from 'axios'
+import Round from './Round'
 import './style.css'
 
 const PlayerHistory = (props) => {
     const[rounds,setRounds] = useState([])
 
     useEffect(() => {
-        axios.get('/api/rounds').then((res) => {
+        console.log(props.match.params.id)
+        axios.get(`/api/members/${props.match.params.id}`).then((res) => {
             setRounds(res.data)
         })
     }, [])
@@ -18,12 +17,12 @@ const PlayerHistory = (props) => {
         return(
             <div className="single-member">
             <h2>
-                {/* {this.state.users.first_name}' '{this.state.users.last_name} */}
+                Player History
             </h2>
             <div className="list-hold">
-                {/* {Rounds.map((round) => (
+                {rounds.map((round) => (
                     <Round key={round.id} data={round}/>
-                ))} */}
+                ))}
             </div>
         </div>
     )

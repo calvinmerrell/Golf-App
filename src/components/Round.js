@@ -3,10 +3,12 @@ import './style.css'
 
 const Round = (props) => {
     const {id,course_name,date,full18score} = props.data
+
+    
     return (
         <div className="round">
             
-            <p>{id} {course_name} {date} {full18score}</p>
+            <p> {course_name} {date} {full18score}</p>
             
         </div>
     )

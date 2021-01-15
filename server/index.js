@@ -35,26 +35,13 @@ app.delete('/auth/logout', authctrl.logout);
 // Members END POINTS: 
 app.get('/api/members', membersCtrl.getAllMembers)
 
-// app.get('/api/members'),(req,res) => res.status(200).send(members)
-
-// app.get('/api/members/:id', (req,res)=>{
-//     const user = users.find((e) => e.id === +req.params.id)
-
-//     if(user) {
-//         res.status(200).send(album)
-//     } else {
-//         res.status(404).send('User not found')
-//     }
-// })
-
 // PlayerHistory END POINTS:
-// app.get('/api/playerhistory', playerHistoryCtrl.getAllRounds);
-app.get('/api/playerhistory/:player_id',playerHistoryCtrl.getRoundByPlayerId);
-// app.post('/api/playerhistory',postCtrl.addRound);
+app.get('/api/members/:player_id',playerHistoryCtrl.getRoundByPlayerId);
 // app.put('/api/playerhistory/:round_id',playerHistoryCtrl.editRound);
 // app.delete('/api/playerhistory/:round_id',playerHistoryCtrl.deleteRound);
 
-
+// POST Score END POINTS
+// app.post('/api/playerhistory',postCtrl.addRound);
 
 // connect our server to our db
 massive({
