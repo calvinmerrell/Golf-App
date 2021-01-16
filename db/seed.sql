@@ -1,5 +1,5 @@
 -- CREATE TABLE users (
---     id SERIAL PRIMARY KEY, 
+--     user_id SERIAL PRIMARY KEY, 
 --     username VARCHAR(50) not null, 
 --     hash VARCHAR(500) not null, 
 --     first_name text not null, 
@@ -7,24 +7,24 @@
 --     is_admin boolean
 --     )
 
-CREATE TABLE rounds (
-  id SERIAL PRIMARY KEY, 
-  user_id int, 
-  date date, 
-  course_id int, 
-  teebox VARCHAR(10), 
-  front9score int, 
-  back9score int, 
-  full18score int,
-  FOREIGN KEY (user_id) references users(id)
-  )
+-- CREATE TABLE rounds (
+--   round_id SERIAL PRIMARY KEY, 
+--   user_id int, 
+--   date date, 
+--   course_id int, 
+--   teebox VARCHAR(10), 
+--   front9score int, 
+--   back9score int, 
+--   full18score int,
+--   FOREIGN KEY (user_id) references users(user_id)
+--   )
   
-  CREATE TABLE courses (
-  course_id SERIAL PRIMARY KEY,
-  course_name VARCHAR(75),
-  front9par int,
-  back9par int,
-  course_par int,
+--   CREATE TABLE courses (
+--   course_id SERIAL PRIMARY KEY,
+--   course_name VARCHAR(75),
+--   front9par int,
+--   back9par int,
+--   course_par int,
   -- par1 int, 
   -- par2 int, 
   -- par3 int, 
@@ -85,5 +85,17 @@ CREATE TABLE rounds (
 -- VALUES
 -- ('Cedar Hills GC', 36, 36, 72, 4, 4,	3,	5,	3,	5,	4,	3,	5, 5,	3,	4,	4,	4,	3,	4,	4,	5);
 
--- insert into rounds (user_id, date, course_id, teebox, full18score)
--- VALUES (2, '2020-9-20', 5, 'blue', 79)
+-- INSERT INTO rounds (user_id, date, course_id, teebox, full18score)
+-- VALUES (1, '2020-9-20', 5, 'blue', 79)
+
+-- INSERT INTO rounds (user_id, date, course_id, teebox, full18score)
+-- VALUES (2, '2020-9-5', 2, 'blue', 81)
+
+-- INSERT INTO rounds (user_id, date, course_id, teebox, full18score)
+-- VALUES (3, '2020-9-20', 5, 'blue', 85)
+
+-- INSERT INTO rounds (user_id, date, course_id, teebox, full18score)
+-- VALUES (4, '2020-9-20', 5, 'blue', 74)
+
+-- INSERT INTO rounds (user_id, date, course_id, teebox, full18score)
+-- VALUES (5, '2020-9-20', 5, 'blue', 77)

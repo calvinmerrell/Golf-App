@@ -67,6 +67,7 @@ const Header = (props) => {
                 </p>
 
                 <button onClick={handleLogin}>Log in</button>
+                
                 <button onClick={handleLogout}>Log out</button>
                 
                 <Link to='/register'>

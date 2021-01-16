@@ -1,0 +1,1 @@
+DELETE FROM rounds WHERE round_id = $1;

@@ -7,15 +7,15 @@ const postCtrl = require('./controllers/postController')
 const session = require('express-session')
 const authctrl = require('./controllers/authController')
 const authenticateUser = require('./middlewares/authenticateUser')
+
 const {SERVER_PORT, DB_STRING, SESSION_SECRET} = process.env
-
-
 
 const app = express();
 
-app.use(express.json());   // gives access to req.body middle ware
+// gives access to req.body middle ware
+app.use(express.json());  
 
-// turn on express-session and create session/ identifier cookie must be above end points
+// this must be above end points
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
@@ -24,7 +24,6 @@ app.use(session({
         maxAge: 100 * 60 * 60 * 24 * 365
     }
 }));
-
 
 // auth endpoints
 app.post('/auth/register', authctrl.register);
@@ -36,8 +35,10 @@ app.delete('/auth/logout', authctrl.logout);
 app.get('/api/members', membersCtrl.getAllMembers)
 
 // PlayerHistory END POINTS:
-app.get('/api/members/:player_id',playerHistoryCtrl.getRoundByPlayerId);
+app.get('/api/members/:user_id',playerHistoryCtrl.getRoundsByUserId);
+
 // app.put('/api/playerhistory/:round_id',playerHistoryCtrl.editRound);
+
 // app.delete('/api/playerhistory/:round_id',playerHistoryCtrl.deleteRound);
 
 // POST Score END POINTS

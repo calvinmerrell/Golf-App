@@ -12,7 +12,7 @@ export default(
     <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/members' component={Members} />
-      <Route exact path='/members/:id' component={PlayerHistory} />
+      <Route exact path='/members/:user_id' component={PlayerHistory} />
       <Route exact path='/postscore' component={PostScore} />
       <Route exact path='/weeklygames' component={WeeklyGames} />
       <Route exact path="/register"><Register /></Route>

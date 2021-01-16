@@ -2,16 +2,24 @@
 
 module.exports = {
     
-    getRoundByPlayerId: (req,res) => {
-      const player_id = req.params.player_id
-      const db =req.app.get('db')
+    getRoundsByUserId: (req,res) => {
+      const db = req.app.get('db')
+      const user_id = req.params.user_id
 
-      db.get_rounds_by_player_id(player_id).then((playerhistory) =>
-      res.status(200).send(playerhistory))
+      db.get_rounds_by_user_id(user_id).then((playerhistory) =>
+        res.status(200).send(playerhistory))
     },
     
     editRound: (req,res)=> {
       const db =req.app.get('db')
+      const {user_id,round_id} = req.params
+      const {full18score} = req.body
+
+      db.edit_round_score([user_id, round_id, full18score]).then((playerhistory) => {
+        res.status(200).send(playerhistory)
+      }).catch(err => {
+        res.status(400).send(err)
+      })
     },
 
     deleteRound: (req,res)=> {

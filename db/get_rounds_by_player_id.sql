@@ -1,1 +1,0 @@
-SELECT * FROM rounds join courses on rounds.course_id = courses.course_id where user_id = $1;
