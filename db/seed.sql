@@ -99,3 +99,9 @@
 
 -- INSERT INTO rounds (user_id, date, course_id, teebox, full18score)
 -- VALUES (5, '2020-9-20', 5, 'blue', 77)
+
+INSERT INTO rounds
+(user_id, course_id, date, teebox, front9score, back9score,full18score)
+VALUES
+($1, $2, $3, $4, $5, $6, $7)
+returning *;

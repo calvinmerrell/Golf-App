@@ -1,1 +1,1 @@
-DELETE FROM rounds WHERE round_id = $1;
+DELETE FROM rounds WHERE user_id =$1 and round_id = $2;

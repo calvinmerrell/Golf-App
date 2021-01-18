@@ -54,7 +54,7 @@ module.exports = {
 
       // Attach the user to the session
       req.session.user = existingUser
-
+      console.log(req.session.user)
       // Send back confirmation of login
       res.status(200).send(existingUser)
     },
