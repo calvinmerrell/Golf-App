@@ -38,5 +38,13 @@ module.exports = {
 
     deleteRound: (req,res)=> {
       const db =req.app.get('db')
+      const {user_id,round_id} = req.params
+
+      db.delete_round([+user_id, +round_id]).then(()=> {
+        res.sendstatus(200)
+      })
+      .catch(err => {
+        res.status(400).send(err)
+      })
     }
 }

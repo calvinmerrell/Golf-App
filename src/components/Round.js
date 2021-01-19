@@ -15,6 +15,14 @@ const Round = (props) => {
            SetShowEdit(false)
         })
     } 
+
+    function handleDelete(){
+        axios.delete(`/api/playerhistory/${props.userid}/${round_id}`).then(
+            (res) => {
+                props.getHistory()
+            }
+        )
+    }
     
 
     return (
@@ -35,7 +43,7 @@ const Round = (props) => {
 
             <button className="ctrlbuttons" onClick={() => SetShowEdit(true)}> Edit </button>
 
-             <button className="ctrlbuttons" onClick={() => this.props.removeScore(this.props.courses.history_id)}>Remove </button>         
+             <button className="ctrlbuttons" onClick={() => handleDelete()}>Remove </button>         
            
         </div>
     )
