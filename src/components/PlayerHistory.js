@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Round from './Round'
 
@@ -22,7 +22,7 @@ const PlayerHistory = (props) => {
             <h2>
                 Player History
             </h2>
-            <div className="list-hold">
+            <div className="container">
                 {rounds.map((round) => (
                     <Round getHistory={getHistory} key={round.round_id} data={round} 
                     user_id={props.match.params.user_id}/>

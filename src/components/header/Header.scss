@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+
+.App-header {
+    background-color: $green;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    height: auto;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    background: $green; 
+    position: relative;
+
+    .header-title {
+        font-size: 2rem;
+        text-decoration: underline;
+        margin-bottom: 10px;
+    }
+    
+    .nav-list {
+        width: 50%;
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            width: 100%;
+            justify-content: space-evenly;
+            
+            li {
+                padding: 5px 10px;
+                
+            }
+        }
+    }
+    
+    .login-container{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+        .login-inputs{
+            font-size: 14px;
+            width: 15vw;
+        }
+    }
+}

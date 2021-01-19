@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+@import './variables.scss';
+
+
+.App {
+  text-align: center;
+}
+
+.App-link {
+  color:$yellow;
+}
+
+.btn-primary{  //overriding bootstrap colors
+  background-color: $teal;
+  border-color: $teal;
+  padding:2px 7px;
+  
+}
+
+.registration-inputs{
+  margin:10px 0;
+}

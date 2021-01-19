@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import moment from "moment"
-import './style.css'
 import axios from 'axios'
+import Button from 'react-bootstrap/Button'
+import './style.css'
 
 const Round = (props) => {
     const {round_id,course_name,date,teebox,full18score} = props.data
@@ -26,24 +27,26 @@ const Round = (props) => {
     
 
     return (
-        <div className="round">
+        <div className="round row">
             
-            <p> 
-                {moment(date).format("DD/MM/YYYY")} - {course_name} - 
-                {teebox}
-            </p>
-            <div>
-                <p > {full18score}</p>
+            
+                <div className="col-2">
+                {moment(date).format("DD/MM/YYYY")} </div> 
+                
+                <div className="col-3">{course_name}</div>  
+                <div className="col-2">{teebox}</div>
+            
+            
+            <div className="col-2">{full18score}</div>
                 
                 { showEdit ? ( 
                 <p><input onChange={(e) => SetInputText(e.target.value)} value={inputText} />
                 <button onClick={handleSave}>Save</button></p>):null
                 }
-            </div>
 
-            <button className="ctrlbuttons" onClick={() => SetShowEdit(true)}> Edit </button>
+            <Button variant="primary" className="ctrlbuttons" onClick={() => SetShowEdit(true)}> Edit </Button>
 
-             <button className="ctrlbuttons" onClick={() => handleDelete()}>Remove </button>         
+             <Button variant="primary" className="ctrlbuttons" onClick={() => handleDelete()}>Remove </Button>         
            
         </div>
     )

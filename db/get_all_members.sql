@@ -1,1 +1,1 @@
-Select user_id,first_name,last_name FROM users
+Select user_id,first_name,last_name FROM users ORDER BY first_name ASC
