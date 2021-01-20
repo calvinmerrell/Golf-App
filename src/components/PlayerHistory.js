@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import axios from 'axios'
 import Round from './Round'
 
@@ -6,16 +6,16 @@ import './style.css'
 
 const PlayerHistory = (props) => {
     const[rounds,setRounds] = useState([])
+    
+    const getHistory = useCallback(function () {
+        axios.get(`/api/members/${props.match.params.user_id}`).then((res) => {
+            setRounds(res.data)
+        })
+    },[props.match.params.user_id])
 
     useEffect(() => {
         getHistory()
     }, [getHistory])
-
-    function getHistory() {
-        axios.get(`/api/members/${props.match.params.user_id}`).then((res) => {
-            setRounds(res.data)
-        })
-    }
 
         return(
             <div className="single-member">

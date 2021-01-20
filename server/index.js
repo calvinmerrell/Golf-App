@@ -3,6 +3,7 @@ const express = require ('express')
 const massive = require('massive')
 const membersCtrl = require('./controllers/membersController')
 const playerHistoryCtrl = require('./controllers/playerHistoryController')
+const postScoreCtrl = require('./controllers/postScoreController')
 const session = require('express-session')
 const authctrl = require('./controllers/authController')
 const authenticateUser = require('./middlewares/authenticateUser')
@@ -35,13 +36,14 @@ app.get('/api/members', membersCtrl.getAllMembers)
 
 // PlayerHistory END POINTS:
 app.get('/api/members/:user_id',playerHistoryCtrl.getRoundsByUserId); 
+app.put('/api/playerhistory/:user_id/:round_id',playerHistoryCtrl.editRound);
+app.delete('/api/playerhistory/:user_id/:round_id',playerHistoryCtrl.deleteRound);
 
 // POST Score END POINTS
+app.get('/api/postscore', postScoreCtrl.getAllCourses)
 app.post('/api/postscore',playerHistoryCtrl.addRound);
 
-app.put('/api/playerhistory/:user_id/:round_id',playerHistoryCtrl.editRound);
 
-app.delete('/api/playerhistory/:user_id/:round_id',playerHistoryCtrl.deleteRound);
 
 
 // connect our server to our db

@@ -18,7 +18,7 @@ const Round = (props) => {
     } 
 
     function handleDelete(){
-        axios.delete(`/api/playerhistory/${props.userid}/${round_id}`).then(
+        axios.delete(`/api/playerhistory/${props.user_id}/${round_id}`).then(
             (res) => {
                 props.getHistory()
             }
