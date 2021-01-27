@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 import './Header.scss'
 
 const Header = (props) => {
@@ -97,4 +99,9 @@ const Header = (props) => {
         </header>
     )
 }
-export default withRouter(Header)
+
+function mapStateToProps(reduxState){
+    return reduxState
+}
+
+export default connect(mapStateToProps)(withRouter(Header))
