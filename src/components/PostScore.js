@@ -4,8 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const PostScore = (props) => {
-    const {user_id,course_id} = props.data
 
+    const {user_id} = user_id
     const [courses, setCourses] = useState([]);
     const [date, setDate] = useState("");
     const [teebox, setTeebox] = useState("");
@@ -26,22 +26,21 @@ const PostScore = (props) => {
     }
 
     function handleSubmit(event) {
-        const body = {course_name:inputText, date:date, teebox:inputText, full18score:inputText}
-        axios.put(`/api/postscore/${props.user_id}/${round_id}`,body).then((res)=> {
-
-        })
-        event.preventDefault();
-
+        alert(`${selectedCourse} ${teebox} ${date} ${full18score} `)
+        const body = {course_name:'', date:date, teebox:'', full18score:''}
+        
+        axios.put(`/api/postscore/${props.user_id}`,body).then( (score) => res.Status(200).send(score)
+        )
     }
 
     return (
         <div className="PostScore">
             <h1>POST A SCORE</h1>
             <Form onSubmit={handleSubmit}>
-
-                <Form.Group controlId="coursename" class="col-3" placeholder="Select Course" >
+               
+                <Form.Group controlId="coursename" class="col-3"  >  
                     <Form.Label><h4>Course</h4></Form.Label>
-                    <Form.Control
+                    <Form.Control placeholder="Select Course"
                         as="select"
                         autoFocus
                         type="course"
@@ -52,7 +51,7 @@ const PostScore = (props) => {
                         >
                     </Form.Control>
                 </Form.Group>
-
+     
 
                 <Form.Group size="lg" controlId="date" class="col-3">
                     <Form.Label><h4>Date</h4></Form.Label>
@@ -63,7 +62,7 @@ const PostScore = (props) => {
                     />
                 </Form.Group>
 
-                <Form.Group controlId="teebox" class="col-2">
+                <Form.Group controlId="teebox" class="col-3">
                     <Form.Label><h4>TeeBox</h4></Form.Label>
                     <Form.Control
                         as="select"
@@ -77,14 +76,17 @@ const PostScore = (props) => {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group size="lg" controlId="full18score" class="col-2">
+                <row>       
+                <Form.Group size="lg" controlId="full18score" class="col-3">
                     <Form.Label><h4>Full 18 Score</h4></Form.Label>
                     <Form.Control
+                        placeholder="enter score"
                         type="full18score"
                         value={full18score}
                         onChange={(e) => setFull18Score(e.target.value)}
                     />
                 </Form.Group>
+                </row>  
 
                 <Button class="col-2 btn-primary" block size="lg" type="submit" disabled={!validateForm()}>
                     Post Score

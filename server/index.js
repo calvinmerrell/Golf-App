@@ -41,7 +41,7 @@ app.delete('/api/playerhistory/:user_id/:round_id',playerHistoryCtrl.deleteRound
 
 // POST Score END POINTS
 app.get('/api/postscore', postScoreCtrl.getAllCourses)
-app.post('/api/postscore',playerHistoryCtrl.addRound);
+app.post('/api/postscore', postScoreCtrl.addRound);
 
 
 

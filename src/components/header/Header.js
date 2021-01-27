@@ -49,7 +49,7 @@ const Header = (props) => {
 
     return (
         <header className="App-header">
-            <h1 className="header-title">REPEAT GOLF LEAGUE</h1>
+            <h1 className="header-title">WR7 GOLF LEAGUE</h1>
             <nav className="nav-list">
                 <ul>
                     {/* <Link className="App-link" to='/'>
@@ -60,9 +60,9 @@ const Header = (props) => {
                         <li>Members</li>
                     </Link>
 
-                    <Link className="App-link" to='/weeklygames'>
+                    {/* <Link className="App-link" to='/weeklygames'>
                         <li>Weekly Games</li>
-                    </Link>
+                    </Link> */}
 
                     <Link className="App-link" to='/postscore'>
                         <li>Post Score</li>
